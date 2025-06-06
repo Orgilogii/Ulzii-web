@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Буян Өлзий Хур Транс</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo (2).png" alt="Buyan Ulzii Khur Trans" class="logo-image">
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav-menu">
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Бидний тухай" data-en="About Us">Бидний тухай</span>
+                        <div class="dropdown-arrow"></div>
+                        <div class="dropdown-content">
+                            <a href="ceo-message.html" data-mn="Захирлын мэндчилгээ" data-en="CEO Message">Захирлын мэндчилгээ</a>
+                            <a href="company-introduction.html" data-mn="Компанийн танилцуулга" data-en="Company Introduction">Компанийн танилцуулга</a>
+                            <a href="mission-values.html" data-mn="Эрхэм зорилго, үнэт зүйлс" data-en="Mission & Values">Эрхэм зорилго, үнэт зүйлс</a>
+                            <a href="history.html" data-mn="Түүхэн замнал" data-en="History">Түүхэн замнал</a>
+                            <a href="competitive-advantages.html" data-mn="Өрсөлдөөний давуу тал" data-en="Competitive Advantages">Өрсөлдөөний давуу тал</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Үйл ажиллагаа" data-en="Services">Үйл ажиллагаа</span>
+                        <div class="dropdown-arrow"></div>
+                        <div class="dropdown-content">
+                            <a href="international-cargo.html" data-mn="Үйс хоорондын байнгын ачаа тээвэр" data-en="International Cargo Transport">Үйс хоорондын байнгын ачаа тээвэр</a>
+                            <a href="domestic-transport.html" data-mn="Дотоодын тээвэр" data-en="Domestic Transport">Дотоодын тээвэр</a>
+                            <a href="maintenance-services.html" data-mn="Засвар үйлчилгээ" data-en="Maintenance Services">Засвар үйлчилгээ</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Хүний нөөц" data-en="Human Resources">Хүний нөөц</span>
+                        <div class="dropdown-arrow"></div>
+                        <div class="dropdown-content">
+                            <a href="human-rights.html" data-mn="Хүний эрх, эрх чөлөө" data-en="Human Rights">Хүний эрх, эрх чөлөө</a>
+                            <a href="hr-policy.html" data-mn="Хүний нөөцийн бодлого" data-en="HR Policy">Хүний нөөцийн бодлого</a>
+                            <a href="selection-process.html" data-mn="Сонгон шалгаруулалтын үе шат" data-en="Selection Process">Сонгон шалгаруулалтын үе шат</a>
+                            <a href="open-positions.html" data-mn="Нээлттэй ажлын байр" data-en="Open Positions">Нээлттэй ажлын байр</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Мэдээ" data-en="News">Мэдээ</span>
+                        <div class="dropdown-arrow"></div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Холбоо барих" data-en="Contact">Холбоо барих</span>
+                        <div class="dropdown-arrow"></div>
+                    </div>
+                    
+                    <div class="language-switcher">
+                        <div class="language-toggle" onclick="toggleLanguage()">
+                            <img src="images/flag-mn.png" alt="Language" class="flag-icon" id="currentFlag">
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="videos/home.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1 class="hero-title" data-mn="ТЭЭВРИЙГ БҮТЭЭМЖЭЭР ТЭРГҮҮЛНЭ." data-en="LEADING TRANSPORTATION WITH PRODUCTIVITY">ТЭЭВРИЙГ БҮТЭЭМЖЭЭР ТЭРГҮҮЛНЭ.</h1>
+                <p class="hero-description" data-mn="Бид Монгол Улсын Эрдэс Баялгийн Тээврийн Салбарт Олон Улсын Стандартыг Нэвтрүүлж, Үр Ашигтай Шийдэл, Найдвартай Үйлчилгээгээр Тэргүүлэх Зорилготойгоор 2016 Оноос Өнөөг Хүртэл Үйл Ажиллагаа Явуулж Байна. Манай Компани Үйл Ажиллагаандаа Тээвэр Менежментийн Ухаалаг Систем Нэвтрүүлсэн Зохион Байгуулалттай Баг Хамт Олноос Бүрдсэн" data-en="We have been operating since 2016 with the goal of introducing international standards in Mongolia's mineral transport sector and leading with efficient solutions and reliable services. Our company consists of an organized team that has implemented intelligent transport management systems in its operations">Бид Монгол Улсын Эрдэс Баялгийн Тээврийн Салбарт Олон Улсын Стандартыг Нэвтрүүлж, Үр Ашигтай Шийдэл, Найдвартай Үйлчилгээгээр Тэргүүлэх Зорилготойгоор 2016 Оноос Өнөөг Хүртэл Үйл Ажиллагаа Явуулж Байна. Манай Компани Үйл Ажиллагаандаа Тээвэр Менежментийн Ухаалаг Систем Нэвтрүүлсэн Зохион Байгуулалттай Баг Хамт Олноос Бүрдсэн</p>
+                <a href="#about" class="btn" data-mn="ДЭЛГЭРЭНГҮЙ" data-en="Learn More">ДЭЛГЭРЭНГҮЙ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/hero-image.jpg" alt="About Us">
+                </div>
+                
+                <div class="services-content">
+                    <h2 class="section-title" data-mn="ТЭЭВРИЙН ЧИГЛЭЛ" data-en="TRANSPORTATION DIRECTIONS">ТЭЭВРИЙН ЧИГЛЭЛ</h2>
+                    <p class="services-intro" data-mn="Манай Компани Нь Дараах Чиглэлүүлэд Эрдэс Баялгийн /Нүүрс/ Тээврийн Үйл Ажиллагаа Явуулж Байна." data-en="Our company operates mineral (coal) transportation in the following directions.">Манай Компани Нь Дараах Чиглэлүүлэд Эрдэс Баялгийн /Нүүрс/ Тээврийн Үйл Ажиллагаа Явуулж Байна.</p>
+                    
+                    <ul class="services-list">
+                        <li data-mn="Өмнөговь Аймгийн Цогтцэций Сумын Нутаг Дэвсгэрт Байрлах Таван Толгойн Бүлэг Ордоос Гашуун Сухайт Боомт Болон БНХАУ-ын Ганц Модны Боомтын Гаалийн Хяналтын Бүс Хүртэлж Зайнд Улс Хоорондын Байнгын Ачаа Тээвэр" data-en="International cargo transportation from Tavan Tolgoi Group Mine in Tsogttsetsii Soum, Umnugobi Aimag to Gashuun Sukhait Port and China's Gantsmod Port Customs Control Zone">Өмнөговь Аймгийн Цогтцэций Сумын Нутаг Дэвсгэрт Байрлах Таван Толгойн Бүлэг Ордоос Гашуун Сухайт Боомт Болон БНХАУ-ын Ганц Модны Боомтын Гаалийн Хяналтын Бүс Хүртэлж Зайнд Улс Хоорондын Байнгын Ачаа Тээвэр</li>
+                        
+                        <li data-mn="Өмнөговь Аймгийн Цогтцэций Сумын Нутаг Дэвсгэрт Байрлах Таван Толгойн Бүлэг Ордоос Цагаан Хад Суурьшлын Бүс Дэх Гаалийн Хяналтын Бүс Хүртэлж Зайнд Дотоодын Тээвэр" data-en="Domestic transportation from Tavan Tolgoi Group Mine in Tsogttsetsii Soum, Umnugobi Aimag to Customs Control Zone in Tsagaan Khad Settlement Area">Өмнөговь Аймгийн Цогтцэций Сумын Нутаг Дэвсгэрт Байрлах Таван Толгойн Бүлэг Ордоос Цагаан Хад Суурьшлын Бүс Дэх Гаалийн Хяналтын Бүс Хүртэлж Зайнд Дотоодын Тээвэр</li>
+                        
+                        <li data-mn="Цагаан Хад Суурьшлын Бүс Дэх Гаалийн Хяналтын Талбайгаас БНХАУ-ын Ганц Модны Боомтын Гаалийн Хяналтын Бүс Хүртэлж Зайнд Улс Хоорондын Байнгын Ачаа Тээвэр" data-en="International cargo transportation from Customs Control Area in Tsagaan Khad Settlement Area to China's Gantsmod Port Customs Control Zone">Цагаан Хад Суурьшлын Бүс Дэх Гаалийн Хяналтын Талбайгаас БНХАУ-ын Ганц Модны Боомтын Гаалийн Хяналтын Бүс Хүртэлж Зайнд Улс Хоорондын Байнгын Ачаа Тээвэр</li>
+                        
+                        <li data-mn="Гашуун Сухайт Боомт Дахь Төмөр Замын Терминалын Талбайгаас БНХАУ-ын Ганц Модны Боомтын Гаалийн Хяналтын Бүс Хүртэлж Зайнд AGV Тээвэр" data-en="AGV transportation from Railway Terminal Area at Gashuun Sukhait Port to China's Gantsmod Port Customs Control Zone">Гашуун Сухайт Боомт Дахь Төмөр Замын Терминалын Талбайгаас БНХАУ-ын Ганц Модны Боомтын Гаалийн Хяналтын Бүс Хүртэлж Зайнд AGV Тээвэр</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-teal" data-mn="Дэлгэрэнгүй" data-en="Learn More">Дэлгэрэнгүй</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities">
+        <div class="container">
+            <h2 class="section-title" data-mn="Үйл ажиллагааны чиглэл" data-en="Business Activities">Үйл ажиллагааны чиглэл</h2>
+            
+            <div class="activities-grid">
+                <div class="activity-row">
+                    <div class="activity-item">
+                        <img src="images/cargo-transport.jpg" alt="Land Cruiser Fleet" onclick="openModal('modal1')">
+                    </div>
+                    <div class="activity-item">
+                        <img src="images/logistics.jpg" alt="Howo Trucks" onclick="openModal('modal2')">
+                    </div>
+                    <div class="activity-item">
+                        <img src="images/our-team.jpg" alt="Team Photo" onclick="openModal('modal3')">
+                    </div>
+                    <div class="activity-item">
+                        <img src="images/model4.jpg" alt="Night Transport" onclick="openModal('modal4')">
+                    </div>
+                </div>
+                <div class="activity-row">
+                    <div class="activity-item">
+                        <img src="images/model5.jpg" alt="Container Terminal" onclick="openModal('modal5')">
+                    </div>
+                    <div class="activity-item">
+                        <img src="images/model6.jpg" alt="Truck Fleet" onclick="openModal('modal6')">
+                    </div>
+                    <div class="activity-item">
+                        <img src="images/model7.jpg" alt="Team Group" onclick="openModal('modal7')">
+                    </div>
+                    <div class="activity-item">
+                        <img src="images/model8.jpg" alt="Team Meeting" onclick="openModal('modal8')">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2 class="section-title" data-mn="Мэдээ, мэдээлэл" data-en="News & Information">Мэдээ, мэдээлэл</h2>
+            <div class="news-cards-grid">
+                <div class="news-card-large">
+                    <img src="images/odooerp.png" alt="News 1">
+                    <div class="news-overlay">
+                        <div class="news-content-overlay">
+                            <p data-mn="Odoo ERP системд Техникийн модуль, Засварын модулийг ашиглан техник ашиглалт, бүртгэлийг хөтөл" data-en="Maintain technical usage and records using the Technical Module and Maintenance Module in the Odoo ERP system">Odoo ERP системд Техникийн модуль, Засварын модулийг ашиглан техник ашиглалт, бүртгэлийг хөтөл</p>
+                            <a href="#" class="news-btn" data-mn="Унших" data-en="Read">Унших</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-card-large">
+                    <img src="images/model4.jpg" alt="News 2">
+                    <div class="news-overlay">
+                        <div class="news-content-overlay">
+                            <p data-mn="Алба бүр богино долгионы радио станц, GPS-ээр тоноглогдсон  TOYOTO LAND CRUSER 76, 78, 79" data-en="Each office is equipped with a short-wave radio station and GPS. TOYOTO LAND CRUSER 76, 78, 79">Алба бүр богино долгионы радио станц, GPS-ээр тоноглогдсон  TOYOTO LAND CRUSER 76, 78, 79</p>
+                            <a href="#" class="news-btn" data-mn="Унших" data-en="Read">Унших</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-card-large">
+                    <img src="images/News1.jpg" alt="News 3">
+                    <div class="news-overlay">
+                        <div class="news-content-overlay">
+                            <p data-mn="Олон улсын автозам ачаа тээвэрлэгч, эрдэс баялгийн экспорт импортын тээвэрлэелт, логистикийн үйлчилгээ" data-en="HOWO SINOTRUCK T7H, V7X vehicles are designed for the road conditions of Mongolia.">HOWO SINOTRUCK  T7H, V7X маркийн авто машинууд нь Монгол Улсын зам тээврийн нөхцөлд зориулан бүтээгдсэн</p>
+                            <a href="#" class="news-btn" data-mn="Унших" data-en="Read">Унших</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-card-large">
+                    <img src="images/hero-image.jpg" alt="News 4">
+                    <div class="news-overlay">
+                        <div class="news-content-overlay">
+                            <p data-mn="Олон улсын автозам ачаа тээвэрлэгч, эрдэс баялгийн экспорт импортын тээвэрлэлт, логистикийн үйлчилгээ" data-en="International road cargo transport, mineral export-import transportation, logistics services">Олон улсын автозам ачаа тээвэрлэгч, эрдэс баялгийн экспорт импортын тээвэрлэлт, логистикийн үйлчилгээ</p>
+                            <a href="#" class="news-btn" data-mn="Унших" data-en="Read">Унших</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label" data-mn="Ажилтан" data-en="Employees">Ажилтан</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label" data-mn="Салбар компани" data-en="Branch Companies">Салбар компани</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label" data-mn="Жилийн туршлага" data-en="Years Experience">Жилийн туршлага</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label" data-mn="Тээврийн хэрэгсэл" data-en="Vehicles">Тээврийн хэрэгсэл</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Structure - Modern Design -->
+    <section class="company-structure">
+        <div class="container">
+            <h2 class="section-title" data-mn="Компанийн бүтэц" data-en="Company Structure">Компанийн бүтэц</h2>
+            <div class="structure-content">
+                <div class="structure-info">
+                    <div class="structure-item">
+                        <div class="structure-dot"></div>
+                        <div class="structure-text">
+                            <h3 data-mn="АЛСЫН ХАРАА" data-en="VISION">АЛСЫН ХАРАА</h3>
+                            <p data-mn="Хөгжилд гүүштэй гэмүүлэгч, чанарыг эрхэмлэгч итгэлт түнш" data-en="A trusted partner committed to development and quality excellence">Хөгжилд гүүштэй гэмүүлэгч, чанарыг эрхэмлэгч итгэлт түнш</p>
+                        </div>
+                    </div>
+                    <div class="structure-item">
+                        <div class="structure-dot"></div>
+                        <div class="structure-text">
+                            <h3 data-mn="ЭРХЭМ ЗОРИЛГО" data-en="MISSION">ЭРХЭМ ЗОРИЛГО</h3>
+                            <p data-mn="Эрдэс баялгийн тээвэрийг үр ашигтай шийдэл, найдвартай үйлчилгээгээр тэргүүлнэ" data-en="Leading mineral transportation with efficient solutions and reliable services">Эрдэс баялгийн тээвэрийг үр ашигтай шийдэл, найдвартай үйлчилгээгээр тэргүүлнэ</p>
+                        </div>
+                    </div>
+                    <div class="structure-item">
+                        <div class="structure-dot"></div>
+                        <div class="structure-text">
+                            <h3 data-mn="ҮНЭТ ЗҮЙЛС" data-en="VALUES">ҮНЭТ ЗҮЙЛС</h3>
+                            <p data-mn="Б-Байгальболон хүүхэд зэлтэй Э-Өрсөлдөөн чадвартай Х-Хариуцлагатай ёс зүйтэй Т-Туушлагай хамт олон" data-en="Environment-friendly, Competitive, Responsible and ethical, Stable team">Б-Байгальболон хүүхэд зэлтэй Э-Өрсөлдөөн чадвартай Х-Хариуцлагатай ёс зүйтэй Т-Туушлагай хамт олон</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-diagram">
+                    <img src="images/grapic1.png" alt="Company Structure Diagram">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Mobile App Section -->
+    <section class="mobile-app">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-info">
+                    <h2 data-mn="Уламжлалт тээврийг шинэ ухаалаг систем болгов" data-en="Traditional transport transformed into a new smart system">Уламжлалт тээврийг шинэ ухаалаг систем болгов</h2>
+                    <p data-mn="Бид өдөр тутмын үйл ажиллагаандаа техник технологийн дэвшилтэт шийдлүүдийг нэвтрүүлж дижитал шилжилтийг үе шаттай хийснээр алба нэгж, ажилтан хоорондын мэдээллийн урсгалыг сайжруулж, ажилтнуудын ажлын ачааллыг хөнгөвчилж, бүтээмжийг нэмэгдүүлж байна" data-en="By implementing advanced technical solutions in our daily operations and making a phased digital transition, we are improving information flow between departments and employees, reducing workload and increasing productivity">Бид өдөр тутмын үйл ажиллагаандаа техник технологийн дэвшилтэт шийдлүүдийг нэвтрүүлж дижитал шилжилтийг үе шаттай хийснээр алба нэгж, ажилтан хоорондын мэдээллийн урсгалыг сайжруулж, ажилтнуудын ажлын ачааллыг хөнгөвчилж, бүтээмжийг нэмэгдүүлж байна</p>
+                    <div class="app-buttons">
+                        <a href="#" class="app-btn-enhanced google-play">
+                            <i class="fab fa-google-play"></i>
+                            <span>Google Play</span>
+                        </a>
+                        <a href="#" class="app-btn-enhanced odoo-btn">
+                            <span>odoo</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="app-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="status-bar">
+                                <span>9:41</span>
+                                <div class="status-icons">
+                                    <i class="fas fa-signal"></i>
+                                    <i class="fas fa-wifi"></i>
+                                    <i class="fas fa-battery-full"></i>
+                                </div>
+                            </div>
+                            <div class="app-screen">
+                                <div class="app-header">
+                                    <span>Home</span>
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                                <div class="search-bar">
+                                    <i class="fas fa-search"></i>
+                                    <span>Search</span>
+                                </div>
+                                <div class="app-banner">
+                                    <img src="images/logo1.png" alt="Desert Banner">
+                                </div>
+                                <div class="app-grid">
+                                    <div class="app-icon orange">
+                                        <i class="fas fa-truck"></i>
+                                        <span>Тээвэр</span>
+                                    </div>
+                                    <div class="app-icon blue">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Гүйцэтгэл</span>
+                                    </div>
+                                    <div class="app-icon green">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Хяналт</span>
+                                    </div>
+                                    <div class="app-icon red">
+                                        <i class="fas fa-network-wired"></i>
+                                        <span>Сүлжээ</span>
+                                    </div>
+                                    <div class="app-icon purple">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Ажлын Цаг</span>
+                                    </div>
+                                    <div class="app-icon orange">
+                                        <i class="fas fa-hard-hat"></i>
+                                        <span>ХАБЭА</span>
+                                    </div>
+                                </div>
+                                <div class="app-nav">
+                                    <div class="nav-item active">
+                                        <i class="fas fa-home"></i>
+                                        <span>HOME</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>GPS</span>
+                                    </div>
+                                    <div class="nav-item">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <span>EMERGENCY</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Partners Section with Real Logos -->
+    <section class="partners">
+        <div class="container">
+            <!-- Real Partners Grid using the actual image -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-BIupo9sWy52CkOR8BTlshMCnsSV7ZY.png" alt="Хамтрагч Байгууллагууд" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-mn="Learn More" data-en="Learn More">Learn More</h3>
+                    <ul>
+                        <li><a href="#" data-mn="Бидний тухай" data-en="About Us">Бидний тухай</a></li>
+                        <li><a href="#" data-mn="Үйл ажиллагаа" data-en="Services">Үйл ажиллагаа</a></li>
+                        <li><a href="#" data-mn="Хүний нөөц" data-en="Human Resources">Хүний нөөц</a></li>
+                        <li><a href="#" data-mn="Мэдээ" data-en="News">Мэдээ</a></li>
+                        <li><a href="#" data-mn="Холбоо барих" data-en="Contact">Холбоо барих</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-mn="Tickets & Booking" data-en="Tickets & Booking">Tickets & Booking</h3>
+                    <ul>
+                        <li><a href="#" data-mn="Lift Tickets" data-en="Lift Tickets">Lift Tickets</a></li>
+                        <li><a href="#" data-mn="Season Passes" data-en="Season Passes">Season Passes</a></li>
+                        <li><a href="#" data-mn="Vacation Packages" data-en="Vacation Packages">Vacation Packages</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-mn="Contact Us" data-en="Contact Us">Contact Us</h3>
+                    <ul>
+                        <li data-mn="Hotel Reservation:" data-en="Hotel Reservation:">Hotel Reservation: <strong>123-456-7890</strong></li>
+                        <li data-mn="Ticket Office:" data-en="Ticket Office:">Ticket Office: <strong>123-456-7890</strong></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-mn="Social" data-en="Social">Social</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nymka Media | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Gallery Images -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="/placeholder.svg" alt="Modal Image">
+            <div class="modal-info">
+                <h3 id="modalTitle">Title</h3>
+                <p id="modalDescription">Description</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

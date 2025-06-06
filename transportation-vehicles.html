@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тээврийн хэрэгсэл - Буян Улзий Хур Транс</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(45deg, #f9ae51, #e69a3f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .logo-icon::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: #0d5257;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .main {
+            color: #0d5257;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .logo-text .sub {
+            color: #0d5257;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        /* Navigation Styles */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 10px 0;
+        }
+
+        .nav-item span {
+            white-space: nowrap;
+        }
+
+        .dropdown-arrow {
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #666;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            border-left: 1px solid #e5e7eb;
+            padding-left: 1.5rem;
+            margin-left: 1rem;
+        }
+
+        .language-toggle {
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .language-toggle:hover {
+            background-color: #f8f9fa;
+            border-color: #0d5257;
+            transform: scale(1.05);
+        }
+
+        .flag-icon {
+            width: 32px;
+            height: 20px;
+            border-radius: 3px;
+            object-fit: cover;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #0d5257;
+            padding-left: 25px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: all 0.3s;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #0d5257;
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f9ae51;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+            color: #f9ae51;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #f9ae51;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Page Specific Styles */
+        .page-title {
+            text-align: center;
+            margin: 120px 0 40px;
+            color: #0d5257;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .vehicle-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vehicle-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .vehicle-info {
+            padding: 20px;
+        }
+
+        .vehicle-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #0d5257;
+        }
+
+        .vehicle-specs {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .vehicle-specs li {
+            margin-bottom: 5px;
+            list-style: none;
+        }
+
+        .vehicle-specs i {
+            margin-right: 10px;
+            color: #0d5257;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                flex-direction: column;
+                align-items: flex-start;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-title {
+                font-size: 2rem;
+                margin: 100px 0 30px;
+            }
+
+            .nav-item {
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid #f3f4f6;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                margin-top: 10px;
+                margin-left: 20px;
+                width: calc(100% - 20px);
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">
+                        <div class="main">BUYAN ULZII</div>
+                        <div class="sub">KHUR TRANS</div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="nav-menu">
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Бидний тухай" data-en="About Us">Бидний тухай</span>
+                        <div class="dropdown-arrow"></div>
+                        <div class="dropdown-content">
+                            <a href="banner-section.html" data-mn="Баннер зурагтай хэсэг" data-en="Banner Section">Баннер зурагтай хэсэг</a>
+                            <a href="business-directions.html" data-mn="Үйл ажиллагааны чиглэл" data-en="Business Directions">Үйл ажиллагааны чиглэл</a>
+                            <a href="transportation-vehicles.html" data-mn="Тээврийн хэрэгсэл" data-en="Transportation Vehicles">Тээврийн хэрэгсэл</a>
+                            <a href="our-clients.html" data-mn="Манай харилцагчид" data-en="Our Clients">Манай харилцагчид</a>
+                            <a href="ceo-message.html" data-mn="Захирлын мэндчилгээ" data-en="CEO Message">Захирлын мэндчилгээ</a>
+                            <a href="company-introduction.html" data-mn="Компанийн танилцуулга" data-en="Company Introduction">Компанийн танилцуулга</a>
+                            <a href="mission-values.html" data-mn="Эрхэм зорилго, үнэт зүйлс" data-en="Mission & Values">Эрхэм зорилго, үнэт зүйлс</a>
+                            <a href="history.html" data-mn="Түүхэн замнал" data-en="History">Түүхэн замнал</a>
+                            <a href="competitive-advantages.html" data-mn="Өрсөлдөөний давуу тал" data-en="Competitive Advantages">Өрсөлдөөний давуу тал</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Үйл ажиллагаа" data-en="Services">Үйл ажиллагаа</span>
+                        <div class="dropdown-arrow"></div>
+                        <div class="dropdown-content">
+                            <a href="international-cargo.html" data-mn="Үйс хоорондын байнгын ачаа тээвэр" data-en="International Cargo Transport">Үйс хоорондын байнгын ачаа тээвэр</a>
+                            <a href="domestic-transport.html" data-mn="Дотоодын тээвэр" data-en="Domestic Transport">Дотоодын тээвэр</a>
+                            <a href="maintenance-services.html" data-mn="Засвар үйлчилгээ" data-en="Maintenance Services">Засвар үйлчилгээ</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Хүний нөөц" data-en="Human Resources">Хүний нөөц</span>
+                        <div class="dropdown-arrow"></div>
+                        <div class="dropdown-content">
+                            <a href="human-rights.html" data-mn="Хүний эрх, эрх чөлөө" data-en="Human Rights">Хүний эрх, эрх чөлөө</a>
+                            <a href="hr-policy.html" data-mn="Хүний нөөцийн бодлого" data-en="HR Policy">Хүний нөөцийн бодлого</a>
+                            <a href="selection-process.html" data-mn="Сонгон шалгаруулалтын үе шат" data-en="Selection Process">Сонгон шалгаруулалтын үе шат</a>
+                            <a href="open-positions.html" data-mn="Нээлттэй ажлын байр" data-en="Open Positions">Нээлттэй ажлын байр</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Мэдээ" data-en="News">Мэдээ</span>
+                        <div class="dropdown-arrow"></div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <span class="nav-text" data-mn="Холбоо барих" data-en="Contact">Холбоо барих</span>
+                        <div class="dropdown-arrow"></div>
+                    </div>
+                    
+                    <div class="language-switcher">
+                        <div class="language-toggle" onclick="toggleLanguage()">
+                            <img src="images/flag-mn.png" alt="Language" class="flag-icon" id="currentFlag">
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Тээврийн хэрэгсэл</h1>
+        <div class="vehicles-grid">
+            <div class="vehicle-card">
+                <img src="images/truck1.jpg" alt="Truck 1" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Хүнд даацын ачааны машин</h3>
+                    <ul class="vehicle-specs">
+                        <li><i class="fas fa-weight"></i>Даац: 20 тонн</li>
+                        <li><i class="fas fa-road"></i>Явсан км: 50,000</li>
+                        <li><i class="fas fa-calendar"></i>Үйлдвэрлэсэн он: 2020</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="vehicle-card">
+                <img src="images/truck2.jpg" alt="Truck 2" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Дунд оврын ачааны машин</h3>
+                    <ul class="vehicle-specs">
+                        <li><i class="fas fa-weight"></i>Даац: 10 тонн</li>
+                        <li><i class="fas fa-road"></i>Явсан км: 30,000</li>
+                        <li><i class="fas fa-calendar"></i>Үйлдвэрлэсэн он: 2021</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="vehicle-card">
+                <img src="images/truck3.jpg" alt="Truck 3" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Контейнер тээвэрлэгч</h3>
+                    <ul class="vehicle-specs">
+                        <li><i class="fas fa-weight"></i>Даац: 30 тонн</li>
+                        <li><i class="fas fa-road"></i>Явсан км: 40,000</li>
+                        <li><i class="fas fa-calendar"></i>Үйлдвэрлэсэн он: 2022</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <section id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-mn="Дэлгэрэнгүй" data-en="Learn More">Дэлгэрэнгүй</h3>
+                    <ul>
+                        <li><a href="#" data-mn="Бидний тухай" data-en="About Lift">Бидний тухай</a></li>
+                        <li><a href="#" data-mn="Хэвлэлийн мэдээ" data-en="Press Releases">Хэвлэлийн мэдээ</a></li>
+                        <li><a href="#" data-mn="Байгаль орчин" data-en="Environment">Байгаль орчин</a></li>
+                        <li><a href="#" data-mn="Ажлын байр" data-en="Jobs">Ажлын байр</a></li>
+                        <li><a href="#" data-mn="Нууцлалын бодлого" data-en="Privacy Policy">Нууцлалын бодлого</a></li>
+                        <li><a href="#" data-mn="Холбоо барих" data-en="Contact Us">Холбоо барих</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-mn="Тасалбар & Захиалга" data-en="Tickets & Booking">Тасалбар & Захиалга</h3>
+                    <ul>
+                        <li><a href="#" data-mn="Тасалбар" data-en="Lift Tickets">Тасалбар</a></li>
+                        <li><a href="#" data-mn="Улирлын пасс" data-en="Season Passes">Улирлын пасс</a></li>
+                        <li><a href="#" data-mn="Амралтын багц" data-en="Vacation Packages">Амралтын багц</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-mn="Холбоо барих" data-en="Contact Us">Холбоо барих</h3>
+                    <ul>
+                        <li data-mn="Зочид буудлын захиалга: 123-456-7890" data-en="Hotel Reservation: 123-456-7890">Зочид буудлын захиалга: <strong>123-456-7890</strong></li>
+                        <li data-mn="Тасалбарын оффис: 123-456-7890" data-en="Ticket Office: 123-456-7890">Тасалбарын оффис: <strong>123-456-7890</strong></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-mn="Сошиал" data-en="Social">Сошиал</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-wordpress"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-mn="© 2025 Nymka Media | Бүх эрх хуулиар хамгаалагдсан" data-en="© 2025 Nymka Media | All Rights Reserved">&copy; 2025 Nymka Media | Бүх эрх хуулиар хамгаалагдсан</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navMenu = document.querySelector('.nav-menu');
+            let isMobile = window.innerWidth <= 768;
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                isMobile = window.innerWidth <= 768;
+                if (!isMobile) {
+                    navMenu.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                }
+            });
+
+            // Mobile menu toggle
+            mobileMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Handle dropdowns
+            dropdowns.forEach(dropdown => {
+                if (!isMobile) {
+                    // Desktop hover
+                    dropdown.addEventListener('mouseenter', function() {
+                        dropdowns.forEach(d => d.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+
+                    dropdown.addEventListener('mouseleave', function() {
+                        this.classList.remove('active');
+                    });
+                }
+
+                // Mobile click
+                dropdown.addEventListener('click', function(e) {
+                    if (isMobile) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const wasActive = this.classList.contains('active');
+                        dropdowns.forEach(d => d.classList.remove('active'));
+                        
+                        if (!wasActive) {
+                            this.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (isMobile && !e.target.closest('.nav-menu') && !e.target.closest('.mobile-menu')) {
+                    navMenu.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Language switcher
+            window.toggleLanguage = function() {
+                const currentFlag = document.getElementById('currentFlag');
+                const currentLanguage = currentFlag.src.includes('flag-mn.png') ? 'en' : 'mn';
+                currentFlag.src = `images/flag-${currentLanguage}.png`;
+                
+                const elements = document.querySelectorAll('[data-mn][data-en]');
+                elements.forEach(element => {
+                    const mnText = element.dataset.mn;
+                    const enText = element.dataset.en;
+                    element.innerHTML = currentLanguage === 'mn' ? mnText : enText;
+                });
+            };
+        });
+    </script>
+</body>
+</html> 
