@@ -388,3 +388,174 @@ window.toggleLanguage = function() {
     element.innerHTML = currentLanguage === "mn" ? mnText : enText;
   });
 };
+
+// Load Header and Footer
+document.addEventListener('DOMContentLoaded', function() {
+    // Header content
+    const header = document.getElementById('header');
+    if (header) {
+        header.innerHTML = `
+            <header class="header">
+                <div class="container">
+                    <div class="header-content">
+                        <a href="index.html" class="logo-link">
+                            <img src="images/logo (2).png" alt="Buyan Ulzii Khur Trans" class="logo-image">
+                        </a>
+
+                        <nav class="nav-menu">
+                            <div class="nav-item dropdown">
+                                <span class="nav-text">Бидний тухай</span>
+                                <div class="dropdown-arrow"></div>
+                                <div class="dropdown-content">
+                                    <a href="company-introduction.html">Компанийн танилцуулга</a>
+                                    <a href="history.html">Түүхэн замнал</a>
+                                    <a href="competitive-advantages.html">Өрсөлдөөний давуу тал</a>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-item dropdown">
+                                <span class="nav-text">Үйл ажиллагаа</span>
+                                <div class="dropdown-arrow"></div>
+                                <div class="dropdown-content">
+                                   <a href="maintenance-services.html">Засвар үйлчилгээ</a>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-item dropdown">
+                                <span class="nav-text">Хүний нөөц</span>
+                                <div class="dropdown-arrow"></div>
+                                <div class="dropdown-content">
+                                    <a href="open-positions.html">Нээлттэй ажлын байр</a>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-item dropdown">
+                                <span class="nav-text">Мэдээ</span>
+                                <div class="dropdown-arrow"></div>
+                                <div class="dropdown-content">
+                                    <a href="news.html">Мэдээ, мэдээлэл</a>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-item dropdown">
+                                <span class="nav-text">Холбоо барих</span>
+                                <div class="dropdown-arrow"></div>
+                                <div class="dropdown-content">
+                                    <a href="contact.html">Холбоо барих</a>
+                                </div>
+                            </div>
+                            
+                            <div class="language-switcher">
+                                <div class="language-toggle" onclick="toggleLanguage()">
+                                    <img src="images/flag-mn.png" alt="Language" class="flag-icon" id="currentFlag">
+                                </div>
+                            </div>
+                        </nav>
+
+                        <div class="mobile-menu" onclick="toggleMobileMenu()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        `;
+    }
+
+    // Footer content
+    const footer = document.getElementById('footer');
+    if (footer) {
+        footer.innerHTML = `
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h3>Learn More</h3>
+                            <ul>
+                                <li><a href="#">Бидний тухай</a></li>
+                                <li><a href="#">Үйл ажиллагаа</a></li>
+                                <li><a href="#">Хүний нөөц</a></li>
+                                <li><a href="#">Мэдээ</a></li>
+                                <li><a href="#">Холбоо барих</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-section">
+                            <h3>Tickets & Booking</h3>
+                            <ul>
+                                <li><a href="#">Lift Tickets</a></li>
+                                <li><a href="#">Season Passes</a></li>
+                                <li><a href="#">Vacation Packages</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-section">
+                            <h3>Contact Us</h3>
+                            <ul>
+                                <li>Hotel Reservation: <strong>123-456-7890</strong></li>
+                                <li>Ticket Office: <strong>123-456-7890</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-section">
+                            <h3>Social</h3>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 Nymka Media | All Rights Reserved</p>
+                    </div>
+                </div>
+            </footer>
+        `;
+    }
+
+    // Initialize dropdowns
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+    });
+
+    // Add active class to current page
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.closest('.dropdown').classList.add('active');
+        }
+    });
+});
+
+// Toggle mobile menu
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    navMenu.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+}
+
+// Toggle language
+function toggleLanguage() {
+    const currentFlag = document.getElementById('currentFlag');
+    const currentSrc = currentFlag.src;
+    
+    if (currentSrc.includes('flag-mn.png')) {
+        currentFlag.src = 'images/flag-en.png';
+    } else {
+        currentFlag.src = 'images/flag-mn.png';
+    }
+}
